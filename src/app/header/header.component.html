@@ -1,0 +1,51 @@
+<h3 class="head" *ngIf="headerSection">Header</h3>
+
+
+<div class="row " style="margin-top: 30px;" *ngIf="middleSection">
+    <div class="col-2 head">
+        <div>
+            <h5 class="side" (click)="fruits()">Fruits</h5>
+        </div>
+        <div>
+            <h5 class="side"(click)="vegetables()">Vegetables</h5>
+        </div>
+        <div>
+            <h5 class="side" (click)="Juices()">Juices</h5>
+        </div>
+        <div>
+            <h5 class="side" (click)="icecream()">Ice Cream</h5>
+        </div>
+    </div>
+    <div class="col-8 head" style="margin-left: 20px;">
+        <div class="row">
+            <div class="col-6">
+                <label for="">Enter Name</label>
+                <input type="text" [(ngModel)]="showName">
+                <br>
+                <button (click)="displayName()">click me</button>
+                <br><br><br><br><br>
+                <input type="text" placeholder="Enter Ice Cream menu" [(ngModel)]="menuName">
+                <br>
+                <button (click)="MenuList()">Add Menu</button>
+                <!-- <button (click)="RemoveList()">Remove Menu</button> -->
+            </div>
+            <div class="col-4">
+                <p>Customer Name</p>
+                <u>
+                    <h4 *ngIf="display">{{showName}}</h4>
+                </u>
+                <div style="margin-top: 100px;">
+                    <u>
+                        <p>List of Items</p>
+                    </u>
+                    <ul [(ngModel)]="ListOfItems" name="fieldName" ngDefaultControl *ngFor="let item of ListOfItems; let i = index" >
+                        <li *ngIf="display" > {{item}}&nbsp; &nbsp;&nbsp;<button (click)="RemoveList(i)">Remove</button></li>
+                    </ul>
+                   
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<h3 class="head" style="margin-top: 30px;" *ngIf="footerSection">Footer</h3>
